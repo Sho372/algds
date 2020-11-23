@@ -1,4 +1,4 @@
-package algds.string;
+package com.sho372.algds.string;
 
 import org.junit.Test;
 

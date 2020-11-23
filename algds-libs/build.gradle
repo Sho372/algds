@@ -13,12 +13,31 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'algds'
+group = 'com.sho372.algds'
 version = '0.1.0'
 
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
+}
+
+publishing {
+    publications {
+        algds(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/Sho372/algds"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 
 dependencies {
@@ -36,23 +55,4 @@ test {
     useJUnit()
 
     maxHeapSize = '1G'
-}
-
-publishing {
-    publications {
-        algds-libs-publish(MavenPublication) {
-            from components.java
-        }
-    }
-
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/Sho372/algds"
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
 }
