@@ -25,8 +25,8 @@ public class Permutations {
      * @param str
      * @param k
      */
-    public Set<String> permNoDuplicated(String str, int k) {
-        permNoDuplicatedHelper(str, k, "");
+    public Set<String> permStrUnique(String str, int k) {
+        permStrUniqueHelper(str, k, "");
         return res;
     }
 
@@ -36,7 +36,7 @@ public class Permutations {
      * @param k
      * @param chosen
      */
-    private void permNoDuplicatedHelper(String str, int k, String chosen) {
+    private void permStrUniqueHelper(String str, int k, String chosen) {
 
         if(chosen.length() == k) {
             // Use a set as a filter
@@ -52,7 +52,7 @@ public class Permutations {
                     str = sm.rmAt(str, i);
 
                     // Explore
-                    permNoDuplicatedHelper(str, k, chosen);
+                    permStrUniqueHelper(str, k, chosen);
 
                     // BackTrack
                     str = sm.insAt(str, ch, i);
