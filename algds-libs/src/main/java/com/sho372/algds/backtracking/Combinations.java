@@ -1,6 +1,7 @@
 package com.sho372.algds.backtracking;
 
 import com.sho372.algds.string.StringManipulation;
+import org.checkerframework.checker.units.qual.C;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,13 +11,13 @@ import java.util.Set;
  */
 public class Combinations {
 
-    static Set<Set<String>> res = new HashSet<>();
-    static StringManipulation sm = new StringManipulation();
+    private Set<Set<String>> res = new HashSet<>();
+    private StringManipulation sm = new StringManipulation();
 
     //TODO move to test
 //    public static void main(String[] args) {
-//        combStr("ABC", 2);
-//        System.out.println(res);
+//        Combinations c = new Combinations();
+//        System.out.println(c.combStr("ABC", 2));
 //    }
 
     /**
@@ -24,12 +25,19 @@ public class Combinations {
      * @param str
      * @param k
      */
-    static void combStr(String str, int k) {
+    public Set<Set<String>> combStr(String str, int k) {
         HashSet<String> chosen = new HashSet<>();
         combStrHelper(str, k, chosen);
+        return res;
     }
 
-    static void combStrHelper(String str, int k, HashSet<String> chosen) {
+    /**
+     *
+     * @param str
+     * @param k
+     * @param chosen
+     */
+    private void combStrHelper(String str, int k, HashSet<String> chosen) {
 
         if(chosen.size() == k) {
             // It's a little tricky. Need to deep copy.

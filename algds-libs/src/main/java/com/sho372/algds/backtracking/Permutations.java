@@ -1,25 +1,21 @@
 package com.sho372.algds.backtracking;
-
 import com.sho372.algds.string.StringManipulation;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  *
  */
 public class Permutations {
 
-    static StringManipulation sm = new StringManipulation();
-    static Set<String> res = new HashSet<>();
+    private StringManipulation sm = new StringManipulation();
+    private Set<String> res = new HashSet<>();
 
     //TODO: move to test
 //    public static void main(String[] args) {
-//        permNoDuplicated("GOOGLE", 3);
-//        for (String ch :res) {
-//            System.out.println(ch);
-//        }
+//        Permutations p = new Permutations();
+//        System.out.println(p.permNoDuplicated("GOOGLE", 3));
 //    }
 
     // nPk = k!*nCk -> permutation
@@ -29,11 +25,18 @@ public class Permutations {
      * @param str
      * @param k
      */
-    static void permNoDuplicated(String str, int k) {
+    public Set<String> permNoDuplicated(String str, int k) {
         permNoDuplicatedHelper(str, k, "");
+        return res;
     }
 
-    static void permNoDuplicatedHelper(String str, int k, String chosen) {
+    /**
+     *
+     * @param str
+     * @param k
+     * @param chosen
+     */
+    private void permNoDuplicatedHelper(String str, int k, String chosen) {
 
         if(chosen.length() == k) {
             // Use a set as a filter
