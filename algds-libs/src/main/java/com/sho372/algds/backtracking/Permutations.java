@@ -2,26 +2,35 @@ package com.sho372.algds.backtracking;
 
 import com.sho372.algds.string.StringManipulation;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ *
+ */
 public class Permutations {
 
-    public static void main(String[] args) {
-        Set<String> comb = permNoDuplicated("GOOGLE", 3);
-        for (String ch :comb) {
-            System.out.println(ch);
-        }
-    }
-
     static StringManipulation sm = new StringManipulation();
-    static Set<String> res = new TreeSet<>();
+    static Set<String> res = new HashSet<>();
+
+    //TODO: move to test
+//    public static void main(String[] args) {
+//        permNoDuplicated("GOOGLE", 3);
+//        for (String ch :res) {
+//            System.out.println(ch);
+//        }
+//    }
 
     // nPk = k!*nCk -> permutation
     // nPn = n!*nCn = n! -> factorial
-    static Set<String> permNoDuplicated(String str, int k) {
+    /**
+     *
+     * @param str
+     * @param k
+     */
+    static void permNoDuplicated(String str, int k) {
         permNoDuplicatedHelper(str, k, "");
-        return res;
     }
 
     static void permNoDuplicatedHelper(String str, int k, String chosen) {
