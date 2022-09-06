@@ -15,5 +15,5 @@ public interface Graph {
     public int outDegree(int i);
     public int inDegree(int i);
 
-    public void printGraph();
+    public void print();
 }

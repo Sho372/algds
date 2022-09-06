@@ -72,7 +72,7 @@ public class GraphAsAdjList implements Graph {
     }
 
     @Override
-    public void printGraph() {
+    public void print() {
         for (int i = 0; i < adjacencyList.size(); i++) {
             System.out.print("\nvertex " + i + "|");
             for (int j :adjacencyList.get(i)) {
@@ -81,31 +81,31 @@ public class GraphAsAdjList implements Graph {
         }
     }
 
-//    public static void main(String[] args) {
-//
-//        // #1 Directed
-//        // Create the graph
-//        int V = 3;
-//        GraphAsAdjList graph = new GraphAsAdjList(V);
-//
-//        graph.addDirectedEdge(0,2); // a -> c
-//        graph.addDirectedEdge(1,0); // b -> a
-//        graph.addDirectedEdge(1,2); // b -> c
-//        graph.addDirectedEdge(2,1); // c -> b
-//
-//        graph.printGraph();
-//
-//        // #2 Undirected
-//        // Create the graph
-//        int V2 = 3;
-//        GraphAsAdjList graph2 = new GraphAsAdjList(V2);
-//
-//        System.out.println();
-//
-//        graph2.addUnDirectedEdge(0,1); // a <-> b
-//        graph2.addUnDirectedEdge(1,2); // b <-> c
-//        graph2.addUnDirectedEdge(2,0); // c <-> a
-//
-//        graph2.printGraph();
-//    }
+    public static void main(String[] args) {
+
+        // #1 Directed
+        // Create the graph
+        int V = 3;
+        GraphAsAdjList graph = new GraphAsAdjList(V);
+
+        graph.addDirectedEdge(0,2); // a -> c
+        graph.addDirectedEdge(1,0); // b -> a
+        graph.addDirectedEdge(1,2); // b -> c
+        graph.addDirectedEdge(2,1); // c -> b
+
+        graph.print();
+
+        // #2 Undirected
+        // Create the graph
+        int V2 = 3;
+        GraphAsAdjList graph2 = new GraphAsAdjList(V2);
+
+        System.out.println();
+
+        graph2.addUnDirectedEdge(0,1); // a <-> b
+        graph2.addUnDirectedEdge(1,2); // b <-> c
+        graph2.addUnDirectedEdge(2,0); // c <-> a
+
+        graph2.print();
+    }
 }
