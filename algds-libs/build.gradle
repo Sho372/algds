@@ -16,6 +16,11 @@ plugins {
 group = 'com.sho372.algds'
 version = '0.3.0'
 
+//マルチバイト文字をcharに格納するとコンパイルエラー起きるため
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()

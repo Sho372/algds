@@ -4,14 +4,17 @@ public class CharToInteger {
 
     public static void main(String[] args) {
 
+        System.out.print('あ');
+
         /*
         Convert alphabets to int. (0 begins)
          */
         String alphabets = "abcdefghijklmnopqrstuvwxyz";
         char[] chars = alphabets.toCharArray();
         for (char c:chars) {
-            System.out.println(c - 'a');
+            System.out.print(c - 'a' + ",");
         }
+        System.out.println();
 
         /*
         Convert numeric string to int. (0 begins)
