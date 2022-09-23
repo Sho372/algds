@@ -2,7 +2,11 @@ package com.sho372.algds.leetcode;
 
 import java.util.*;
 
-public class MostFrequentEven6176 {
+/*
+https://leetcode.com/problems/most-frequent-even-element/
+ */
+
+public class MostFrequentEven2404 {
 
     public int mostFrequentEven(int[] nums) {
         HashMap<Integer, Integer> hm = new HashMap<>();
@@ -34,13 +38,33 @@ public class MostFrequentEven6176 {
         return al.size() != 0 ? Collections.min(al) : -1;
     }
 
+    public int mostFrequentEven2(int[] nums) {
+
+        int ret = -1;
+        int freq = Integer.MIN_VALUE;
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int n:nums) {
+            if(n%2!=0) continue;
+
+            map.put(n, map.getOrDefault(n,0)+1);
+
+            if(map.get(n) > freq||map.get(n) == freq && n < ret) {
+                ret = n;
+                freq = map.get(ret);
+            }
+        }
+        return  ret;
+    }
 
     public static void main(String[] args) {
 
-        MostFrequentEven6176 mf = new MostFrequentEven6176();
+        MostFrequentEven2404 mf = new MostFrequentEven2404();
 
-        //int ans = mf.mostFrequentEven(new int[]{0,1,2,2,4,4,1});
-        int ans = mf.mostFrequentEven(new int[]{29,47,21,41,13,37,25,7});
+//        int ans = mf.mostFrequentEven2(new int[]{0,1,2,2,4,4,1});
+//        int ans = mf.mostFrequentEven2(new int[]{4,4,4,9,2,4});
+//        int ans = mf.mostFrequentEven(new int[]{29,47,21,41,13,37,25,7});
+        int ans = mf.mostFrequentEven(new int[]{8154,9139,8194,3346,5450,9190,133,8239,4606,8671,8412,6290});
         System.out.println(ans);
     }
 
